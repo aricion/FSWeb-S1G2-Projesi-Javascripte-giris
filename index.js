@@ -20,6 +20,12 @@ Aşağıdakileri yapın:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
+let surucuYasi = 21;
+if (surucuYasi > 18) {
+  console.log("True")
+} else { 
+  console.log("False")
+}
 
 
 /*
@@ -34,7 +40,11 @@ Aşağıdakileri yapınız:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
-
+let birinciDeger = 33;
+let ikinciDeger = 22;
+birinciDeger > ikinciDeger && birinciDeger >= ikinciDeger
+birinciDeger = 34;
+console.log(birinciDeger)
 
 
 
@@ -49,7 +59,7 @@ Aşağıdakileri yapın:
    İPUCU: Number metoduna bakabilirsin
 */
 
-
+var year = Number("1992")
 
 
 /*
@@ -61,8 +71,8 @@ Aşağıdakileri yapın:
    3. a ve b'yi çarpıp, sonucu dönün
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b) {
+  return a*b;
 }
 
 
@@ -77,8 +87,9 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+ function kopeginYasi(age){
+  var dogAge = 7 * age;
+  return dogAge;
 }
 
 
@@ -104,9 +115,45 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
 
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+function getPCRandom(){
+  let pcSecimi = ""
+  const pcRandom = Math.floor(Math.random()*3)+1
+    if (pcRandom ===1) {
+      pcSecimi = "Taş" 
+    }  
+    if (pcRandom ===2) {
+      pcSecimi = "Makas" 
+    }
+    if (pcRandom ===3) {
+      pcSecimi = "Kağıt"
+    }
+    return pcSecimi
 }
+
+function oyun(benimSecimim,pcSecimi) {    
+     if (pcSecimi === benimSecimim ) {
+        return ("Beraberlik")
+      }
+      if (pcSecimi === "Taş" && benimSecimim ==="Kağıt" ) {
+        return ("Kazandın!")
+      }
+      if (pcSecimi === "Taş" && benimSecimim ==="Makas") {
+        return ("Kaybettin!")
+      }
+      if (pcSecimi === "Makas" && benimSecimim ==="Kağıt") {
+        return ("Kaybettin!")
+      }
+      if (pcSecimi === "Makas" && benimSecimim ==="Taş") {
+        return ("Kazandın!")
+      }
+      if (pcSecimi === "Kağıt" && benimSecimim ==="Taş") {
+        return ("Kaybettin!")
+      }
+      if (pcSecimi === "Kağıt" && benimSecimim ==="Makas") {
+        return ("Kazandın!")
+      }
+}
+console.log(oyun(getPCRandom(),"Kağıt"))
 
 
 
@@ -120,10 +167,11 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km) {
+  var mil = km * 0.621371;
+  return mil;
 }
-
+console.log(milDonusturucu())
 
 
 //Görev 4b - Santimetreden Feet
@@ -134,10 +182,11 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm) {
+  var feet = cm * 0.03280839895013123;
+  return feet;
 }
-
+console.log(feetDonusturucu());
 
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımızı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
@@ -153,8 +202,14 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(monkeyCount){
+  return(monkeyCount.toString() + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!")
+}
+
+function task(){
+for ( let i= 5; i>0; i-- ) {         
+    cocukSarkisi(i)
+ }
 }
 
 
@@ -173,9 +228,20 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
-}
+function notHesapla(not){  
+  if (not >=90 && not <=100) {
+    return('A aldın')
+   } else if (not >=80 && not<=89) {
+    return('B aldın')
+   } else if (not>=70 && not<=79) {
+    return('C aldın')
+   } else if (not>=60 && not<=69) {
+    return('D aldın')
+   } else {
+    return('F aldın')
+   }
+  }
+  console.log(notHesapla());
 
 
 
