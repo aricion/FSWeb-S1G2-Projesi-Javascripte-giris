@@ -257,8 +257,16 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yapın.
 */
 
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function sesliHarfSayaci(para) {
+  const sesli = ["a","e","ı","i","u","ü","o","ö"];
+  let ayrim = para.toLowerCase().split("");
+  let counter =0;
+  for (let index=0; index<ayrim.length; index++) {
+    if (sesli.includes(ayrim[index])) {
+      counter++;
+    }
+  }
+  return counter;
 }
 
 
